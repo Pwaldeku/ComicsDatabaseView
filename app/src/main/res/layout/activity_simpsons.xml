@@ -62,13 +62,7 @@
                         android:text="Who is it?"
                         android:textSize="18sp"
                         android:textStyle="bold"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
-                        android:textStyle="normal"
-                        android:text="Quote"
-                        android:id="@+id/as_simpson_quote" />
+
 
                 </LinearLayout>
 
@@ -82,5 +76,20 @@
 
 
     </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="300dp"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Quote"
+            android:id="@+id/as_simpson_quote" />
+
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.constraint.ConstraintLayout>
