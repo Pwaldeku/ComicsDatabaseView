@@ -4,8 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-//import android.view.Menu;
-//import android.view.MenuInflater;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -27,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private String URL_JSON = "https://thesimpsonsquoteapi.glitch.me/quotes?count=5";
+    private String URL_JSON = "https://thesimpsonsquoteapi.glitch.me/quotes?count=15";
     private JsonArrayRequest ArrayRequest ;
     private RequestQueue requestQueue ;
     private List<Simpson> lstSimpson = new ArrayList<>();

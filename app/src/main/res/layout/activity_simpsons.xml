@@ -55,13 +55,7 @@
                     android:orientation="vertical"
                     android:layout_margin="8dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/as_simpson_character"
-                        android:text="Who is it?"
-                        android:textSize="18sp"
-                        android:textStyle="bold"/>
+
 
 
                 </LinearLayout>
@@ -81,7 +75,6 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="300dp"
         android:padding="16dp">
 
         <TextView
