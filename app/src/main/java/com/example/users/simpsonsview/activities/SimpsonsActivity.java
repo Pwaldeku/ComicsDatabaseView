@@ -27,11 +27,11 @@ public class SimpsonsActivity extends AppCompatActivity {
         collapsingToolbarLayout.setTitleEnabled(true);
 
 
-        TextView tv_character = findViewById(R.id.as_simpson_character);
+        //TextView tv_character = findViewById(R.id.as_simpson_character);
         TextView tv_quote = findViewById(R.id.as_simpson_quote);
         ImageView img = findViewById(R.id.as_thumbnail);
 
-        tv_character.setText(character);
+        //tv_character.setText(character);
         tv_quote.setText(quote);
 
         collapsingToolbarLayout.setTitle(character);

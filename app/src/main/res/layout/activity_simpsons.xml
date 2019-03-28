@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,59 +10,54 @@
 
 
     <android.support.design.widget.AppBarLayout
-        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:id="@+id/appbarlayout">
+        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="#00cccc">
 
 
         <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingtoolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/collapsingtoolbar"
+            app:contentScrim="@color/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="exitUntilCollapsed|scroll"
-            app:title="simpson_Title"
-            app:contentScrim="@color/colorPrimary">
-
+            app:title="simpson_Title">
 
 
             <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                android:theme="@style/ThemeOverlay.AppCompat.Light">
+                android:theme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="pin">
 
 
             </android.support.v7.widget.Toolbar>
 
 
-
-            <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
                 android:padding="50dp">
 
                 <ImageView
+                    android:id="@+id/as_thumbnail"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/loading_shape"
-                    android:id="@+id/as_thumbnail"/>
+                    android:background="@drawable/loading_shape" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
-                    android:orientation="vertical"
-                    android:layout_margin="8dp">
-
-
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
 
 
                 </LinearLayout>
-
-
 
 
             </LinearLayout>
@@ -75,14 +72,26 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:padding="16dp"
+        android:background="@drawable/telechargement">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Quote"
-            android:id="@+id/as_simpson_quote" />
+            android:id="@+id/as_simpson_quote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quote" />
 
+
+        </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
-</android.support.constraint.ConstraintLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

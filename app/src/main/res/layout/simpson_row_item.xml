@@ -26,12 +26,14 @@ android:id="@+id/container">
         android:id="@+id/simpson_character"
         android:text="Who is it?"
         android:textSize="18sp"
+        android:textColor="@android:color/black"
         android:textStyle="bold"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:textStyle="normal"
+        android:textColor="@android:color/black"
         android:text="Quote"
         android:id="@+id/simpson_quote" />
 
