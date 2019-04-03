@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "817113944933",
+    "firebase_url": "https://simpsonsview.firebaseio.com",
+    "project_id": "simpsonsview",
+    "storage_bucket": "simpsonsview.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817113944933:android:ddb1f5610a743c27",
+        "android_client_info": {
+          "package_name": "com.example.users.simpsonsview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817113944933-07kh9lkne1n9r8o96cg6ltsb28f6kj26.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.users.simpsonsview",
+            "certificate_hash": "946a1a55e72a2c14728d7763c9a7239692fe116c"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3LxkaHfDBeSaQ1ga9AztzPpK1p6qCINI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817113944933-5fb33p6vf2efv7f9delsu5313borm31v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
