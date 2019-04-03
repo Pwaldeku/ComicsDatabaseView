@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -71,6 +72,10 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 
+
+        holder.IVThumbnail.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_transition_animation));
+        holder.tvname.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_transition_animation));
+        holder.tvquote.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_transition_animation));
         holder.tvname.setText(mData.get(position).getCharacter());
         holder.tvquote.setText(mData.get(position).getQuote());
 
