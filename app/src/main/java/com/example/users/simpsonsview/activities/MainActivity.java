@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Cache;
@@ -38,15 +41,28 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue requestQueue ;
     private List<Simpson> lstSimpson = new ArrayList<>();
     private RecyclerView myrv ;
-
+    EditText searchInput;
+    CharSequence search="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
+        //Hide acton Bar
+        getSupportActionBar().hide();
+
+
+
+        //init
+        searchInput = findViewById(R.id.SearchInput);
         myrv = findViewById(R.id.rv);
+
         jsoncall();
+
+        searchInput.setBackgroundResource(R.drawable.search_input_style);
 
 
 
@@ -156,10 +172,31 @@ public class MainActivity extends AppCompatActivity {
 
     public void setRvadapter (List<Simpson> lst) {
 
-        RvAdapter myAdapter = new RvAdapter(this,lst) ;
+        final RvAdapter myAdapter = new RvAdapter(this,lst) ;
         myrv.setLayoutManager(new LinearLayoutManager(this));
         myrv.setAdapter(myAdapter);
 
+ searchInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+                myAdapter.getFilter().filter(s);
+                search = s;
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
 
 

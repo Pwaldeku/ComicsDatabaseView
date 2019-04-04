@@ -1,5 +1,6 @@
 package com.example.users.simpsonsview.adapter;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,14 +21,16 @@ import com.example.users.simpsonsview.model.Simpson;
 import com.example.users.simpsonsview.R;
 //import com.example.users.simpsonsview.activities.
 //import com.demotxt.myapp.myapplication.activities.AnimeDetail;
+import java.util.ArrayList;
 import java.util.List;
 
 
-public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
+public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> implements Filterable {
 
     RequestOptions options ;
     private Context mContext ;
     private List<Simpson> mData ;
+     List<Simpson> mDataFiltered ;
 
 
     public RvAdapter(Context mContext, List lst) {
@@ -33,6 +38,7 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
 
         this.mContext = mContext;
         this.mData = lst;
+        this.mDataFiltered=mData;
         options = new RequestOptions()
                 .centerCrop()
                 .placeholder(R.drawable.loading_shape)
@@ -75,18 +81,67 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
         holder.IVThumbnail.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_transition_animation));
         holder.tvname.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_transition_animation));
         holder.tvquote.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_transition_animation));
-        holder.tvname.setText(mData.get(position).getCharacter());
-        holder.tvquote.setText(mData.get(position).getQuote());
+        holder.tvname.setText(mDataFiltered.get(position).getCharacter());
+        holder.tvquote.setText(mDataFiltered.get(position).getQuote());
 
 
         // load image from the internet using Glide
-        Glide.with(mContext).load(mData.get(position).getImage()).apply(options).into(holder.IVThumbnail);
+        Glide.with(mContext).load(mDataFiltered.get(position).getImage()).apply(options).into(holder.IVThumbnail);
 
     }
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return mDataFiltered.size();
+    }
+
+
+    @Override
+    public Filter getFilter() {
+
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+
+                String Key = constraint.toString();
+                if (Key.isEmpty()) {
+
+                    mDataFiltered = mData;
+
+                } else {
+                    List<Simpson> lstFiltered = new ArrayList<>();
+                    for (Simpson row : mData) {
+
+                        if (row.getCharacter().toLowerCase().contains(Key.toLowerCase())) {
+                            lstFiltered.add(row);
+                        }
+
+                    }
+
+                    mDataFiltered = lstFiltered;
+
+                }
+
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = mDataFiltered;
+                return filterResults;
+
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+
+
+                mDataFiltered = (List<Simpson>) results.values;
+                notifyDataSetChanged();
+
+            }
+        };
+
+
+
+
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
