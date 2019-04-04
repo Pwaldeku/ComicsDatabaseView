@@ -116,6 +116,10 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> impl
                             lstFiltered.add(row);
                         }
 
+                        if (row.getQuote().toLowerCase().contains(Key.toLowerCase())) {
+                            lstFiltered.add(row);
+                        }
+
                     }
 
                     mDataFiltered = lstFiltered;
